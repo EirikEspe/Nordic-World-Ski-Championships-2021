@@ -2,7 +2,7 @@
 #
 # FIS Nordic World Ski Championship 
 # 
-# Seefeld 2019 Sprint
+# Oberstdorf 2021 Sprint
 # 
 #####################################################
 
@@ -23,9 +23,9 @@ sprint$Time <- ms(sub(pattern = ",", replacement = ".", sprint$Time))
 
 # Create a factor of Stage column to control order of levels
 sprint$Stage <- factor(sprint$Stage, 
-                       levels = c("Qualification", "Quarterfinal 1", "Quarterfinal 2", 
-                                 "Quarterfinal 3", "Quarterfinal 4", "Quarterfinal 5",
-                                 "Semifinal 1", "Semifinal 2", "Final"))
+                       levels = c("Qualification", "Quarterfinal 1", "Quarterfinal 2",
+                                  "Quarterfinal 3", "Quarterfinal 4", "Quarterfinal 5",
+                                  "Semifinal 1", "Semifinal 2", "Final"))
 
 
 # Create a column indicating whether the skier is from Norway
