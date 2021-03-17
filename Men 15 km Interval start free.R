@@ -93,7 +93,7 @@ individual15km %>% group_by(Dist) %>% slice_max(Speed, n = 5) %>% ungroup() %>%
   # Add names to the points
   geom_text_repel(aes(label = stringr::str_wrap(Name, width = 10), x = Time, y = Speed,
                       segment.colour = Name),
-                  size = 2.3, seed = 142, min.segment.length = 0.3,
+                  size = 1.8, seed = 142, min.segment.length = 0.3,
                   lineheight = 1.1, show.legend = FALSE) +
   ## Add a table with final results in the last panel
   # Background for the table
@@ -102,7 +102,7 @@ individual15km %>% group_by(Dist) %>% slice_max(Speed, n = 5) %>% ungroup() %>%
             fill = "ghostwhite", inherit.aes = FALSE) +
   # Name of the top 5 overall for this race
   geom_text(data = plot_table, aes(label = paste0(Rank, ". ", Name)), 
-            size = 2.2, hjust = 0) +
+            size = 2.1, hjust = 0) +
   # Title for the table
   geom_text(data = table_title, label = "Results", size = 2.8, 
             hjust = 0, fontface = "bold") +
@@ -113,7 +113,8 @@ individual15km %>% group_by(Dist) %>% slice_max(Speed, n = 5) %>% ungroup() %>%
        subtitle = "Average speed measured between checkpoint and previous checkpoint",
        x = "Race time", y = "Speed (km/h)") +
   theme_light() +
-  theme(axis.text.x = element_text(size = rel(0.8)))
+  theme(axis.text.x = element_text(size = rel(0.7)),
+        axis.text.y = element_text(size = rel(0.9)))
 
 
 
