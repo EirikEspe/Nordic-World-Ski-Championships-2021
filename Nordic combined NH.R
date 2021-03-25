@@ -35,7 +35,8 @@ nordic_combined2 <-  nordic_combined %>%
   mutate(Final_rank = case_when(Boundary == "Start" ~ Points_rank,
                                 TRUE ~ Final_rank))
 
-# Set time at finish to total time
+# Set time at finish to total time (Time used at skiing + time difference after ski jump, 
+# instead of just race time for the skiing )
 nordic_combined2$Time[nordic_combined2$Boundary == "Finish"] <- ms(as.character(
   nordic_combined2$Time[nordic_combined2$Boundary == "Finish"] + 
     nordic_combined2$Time_diff[nordic_combined2$Boundary == "Finish"]
@@ -141,7 +142,7 @@ p2 <- nordic_combined2 %>% filter(Name %in% top10 | Points_rank == 1) %>%
 # Using the patchwork package  to combine the plots
 library(patchwork)
 p1 + p2 + 
-  plot_annotation(title = "Nordics combined in Oberstdorf 2021", 
+  plot_annotation(title = "Nordic combined in Oberstdorf 2021", 
                   caption = paste("The winner of the ski jump starts at 00:00:00", 
                                   "and all other athletes\nstart with time", 
                                   "disadvantages according to their jumping score."))
